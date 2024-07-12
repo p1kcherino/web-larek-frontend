@@ -41,9 +41,9 @@ npm run build
 yarn build
 ```
 
-# Архитектура веб-приложения
+# Архитектура проектной работы "Веб-ларек"
 
-## Описание
+## Описание:
 
 Интерфейс ProductCategory - описывает все возможные категории продукта.  
 
@@ -70,4 +70,17 @@ interface ProductsItem {
 }
 
 ```
+Интерфейс списка товаров на главной странице сайта.
 
+```
+interface ProductsList {
+	products: ProductsItem[];
+}
+```
+Интерфейс модального окна карточки товара. 
+
+`
+interface ProductModal extends ProductsItem {
+	button: string;
+}
+`
