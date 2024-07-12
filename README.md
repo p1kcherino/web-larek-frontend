@@ -41,10 +41,11 @@ npm run build
 yarn build
 ```
 
-## Архитектура веб-приложения
+# Архитектура веб-приложения
 
-# Описание
-Интерфейс ProductCategory - хранит в себе типы данных продукта(карточки товара). 
+## Описание
+
+Интерфейс ProductCategory - описывает все возможные категории продукта.  
 
 ```
 type ProductCategory =
@@ -53,6 +54,20 @@ type ProductCategory =
 	| 'дополнительное'
 	| 'кнопка'
 	| 'хард-скил';
- 
+
+```
+
+Интерфейс ProductsItem - хранит в себе типы данных модели продукта. 
+
+```
+interface ProductsItem {
+	id: string;
+	description: string;
+	image: string;
+	title: string;
+	category: ProductCategory;
+	price: number | null;
+}
+
 ```
 
