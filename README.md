@@ -45,7 +45,7 @@ yarn build
 
 ## Описание:
 
-Интерфейс ProductCategory - описывает все возможные категории продукта.  
+`Интерфейс ProductCategory - описывает все возможные категории продукта.  `
 
 ```
 type ProductCategory =
@@ -57,7 +57,7 @@ type ProductCategory =
 
 ```
 
-Интерфейс ProductsItem - хранит в себе типы данных модели продукта. 
+`Интерфейс ProductsItem - хранит в себе типы данных модели продукта. `
 
 ```
 interface ProductsItem {
@@ -70,17 +70,18 @@ interface ProductsItem {
 }
 
 ```
-Интерфейс списка товаров на главной странице сайта.
+`Интерфейс списка товаров на главной странице сайта.`
 
 ```
 interface ProductsList {
 	products: ProductsItem[];
 }
 ```
-Интерфейс модального окна карточки товара. 
 
-`
+`Интерфейс модального окна карточки товара.` 
+
+```
 interface ProductModal extends ProductsItem {
 	button: string;
 }
-`
+```
