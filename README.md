@@ -41,6 +41,48 @@ npm run build
 yarn build
 ```
 
+# Описание проектной работы: WEB-ларёк. Архитектура:
+
+`Интерфейс ProductCategory - описывает все возможные категории продукта.  `
+
+```
+type ProductCategory =
+	| 'софт-скил'
+	| 'другое'
+	| 'дополнительное'
+	| 'кнопка'
+	| 'хард-скил';
+
+```
+
+`Интерфейс ProductsItem - хранит в себе типы данных модели продукта. `
+
+```
+interface ProductsItem {
+	id: string;
+	description: string;
+	image: string;
+	title: string;
+	category: ProductCategory;
+	price: number | null;
+}
+
+```
+`Интерфейс списка товаров на главной странице сайта.`
+
+```
+interface ProductsList {
+	products: ProductsItem[];
+}
+```
+
+`Интерфейс модального окна карточки товара.` 
+
+```
+interface ProductModal extends ProductsItem {
+	button: string;
+}
+```
 
 `Интернет-магазин с товарами для веб-разработчиков — Web-ларёк. В нём можно посмотреть каталог товаров, добавить товары в корзину и сделать заказ.` 
 
