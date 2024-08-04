@@ -6,49 +6,61 @@ type ProductCategory =
 	| 'кнопка'
 	| 'хард-скил';
 
+
+export interface IApi {
+ getProducts: () => Promise<IProductsItem[]>;
+	postOrder: (order: IOrder) => Promise<IOrderData>;
+ getProductsId: (id: string) => Promise<IProductsItem>;
+}
+
 //Интерфейс для товара
-interface ProductsItem {
+export interface IProductsItem {
 	id: string;
 	description: string;
 	image: string;
 	title: string;
 	category: ProductCategory;
 	price: number | null;
- selected: boolean;
+ index?: string;
 }
 
-//Интерфейс главной страницы с карточками
-interface ProductsList {
-	products: ProductsItem[];
+//Интерфейс формы заказа
+export interface IOrderForm {
+ payment: string;
+ address: string;
+ email: string;
+ phone: string;
 }
 
-//Интерфейс modal карточки товара
-interface ProductModal extends ProductsItem {
-	button: string;
-}
-
-//Cпособ оплаты
-type PaymentMethod = 'card' | 'cash';
-
-//Интерфейс для формы заполнения адреса и способа оплаты
-interface AdressForm {
-	typePayment: PaymentMethod;
-	address: string;
-}
-
-//Интерфейс для формы заполнения контактов
-interface ContactForm {
-	email: string;
-	phone: number;
-}
-
-//Интерфейс корзины
-interface BasketItems {
- id: string;
- price: number;
+//Интерфейс заказа 
+export interface IOrder extends IOrderForm {
  total: number;
-	items: ProductsItem[];
+ items: string[];
+}
+
+//Интерфейс готового заказа
+
+export interface IOrderData {
+ id: string;
+	total: number;
+}
+
+export interface IAppState {
+ basket: IProductsItem[];
+ order: IOrder | null;
+ catalog: IProductsItem[];
+ previe: string | null;
 }
 
 
+export interface IPage { 
+ catalog: HTMLElement;
+ basket: HTMLElement;
+ counter: HTMLElement;
+ locked: HTMLElement;
+}
 
+
+export interface IActions {
+ onClick: (e: MouseEvent) => void;
+}
